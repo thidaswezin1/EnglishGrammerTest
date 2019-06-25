@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/image"
+        android:id="@+id/image"/>
+    <!--<ViewFlipper
+        android:id="@+id/imageflipper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoStart="true"
+        android:flipInterval="2000">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_alignStart="@+id/imageflipper"
+            android:scaleType="fitXY"
+            android:src="@drawable/image" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:src="@drawable/image2"
+            android:scaleType="fitXY" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:src="@drawable/image3"
+            android:scaleType="fitXY" />
+    </ViewFlipper>-->
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image"
+        android:layout_marginTop="65dp"
+        android:orientation="vertical"
+        android:paddingTop="50dp"
+        android:paddingLeft="30dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/radio">
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Elementary"
+            android:textSize="23sp" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Intermediate"
+            android:textSize="23sp" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Advanced"
+            android:textSize="23sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radio"
+        android:layout_marginTop="129dp"
+        android:background="@drawable/mybutton"
+        android:layout_centerHorizontal="true"
+        android:text="Start"
+        android:textColor="#ffffff" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button"
+        android:layout_marginTop="-375dp"
+        android:checked="true"
+        android:paddingTop="20dp"
+        android:text="Music"
+        android:textOff="OFF"
+        android:textOn="ON" />
+
+</RelativeLayout>
