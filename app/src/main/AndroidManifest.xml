@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -17,27 +17,38 @@
         </activity>
 
         <activity
-            android:name=".QuestionAnswer"/>
+            android:name=".QuestionAnswer"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer2"/>
+            android:name=".QuestionAnswer2"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer3"/>
+            android:name=".QuestionAnswer3"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer4"/>
+            android:name=".QuestionAnswer4"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer5"/>
+            android:name=".QuestionAnswer5"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer6"/>
+            android:name=".QuestionAnswer6"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer7"/>
+            android:name=".QuestionAnswer7"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer8"/>
+            android:name=".QuestionAnswer8"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer9"/>
+            android:name=".QuestionAnswer9"
+            android:noHistory="true"/>
         <activity
-            android:name=".QuestionAnswer10"/>
+            android:name=".QuestionAnswer10"
+            android:noHistory="true"/>
         <activity
-            android:name=".FinalPage"/>
+            android:name=".FinalPage"
+            android:noHistory="true"/>
 
         <service
             android:name="com.example.englishgrammertest.BackgroundMusic"

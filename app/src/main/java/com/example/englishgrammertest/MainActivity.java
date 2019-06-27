@@ -106,7 +106,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Radio
                         startActivity(intent);
                         finish();
                         System.exit(0);
-
                     }
                 })
                 .setNegativeButton("No",new DialogInterface.OnClickListener() {
