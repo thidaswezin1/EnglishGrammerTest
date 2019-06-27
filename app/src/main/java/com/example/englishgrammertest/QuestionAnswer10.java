@@ -19,6 +19,7 @@ public class QuestionAnswer10 extends Activity implements View.OnClickListener,R
     String correct,answer;
     String question,ques,falseAnswer1,falseAnswer2;
     RadioButton radio1,radio2,radio3;
+    int correctMarks;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questionanswer);
@@ -29,6 +30,12 @@ public class QuestionAnswer10 extends Activity implements View.OnClickListener,R
 
         ImageView image = findViewById(R.id.imageView);
         image.setImageResource(R.drawable.q1);
+
+        image.getLayoutParams().height = 300;
+
+        image.getLayoutParams().width = 200;
+
+        image.setScaleType(ImageView.ScaleType.FIT_XY);
 
         ProgressBar progressBar = findViewById(R.id.progressBar2);
         progressBar.setProgress(9);
@@ -78,15 +85,22 @@ public class QuestionAnswer10 extends Activity implements View.OnClickListener,R
             radio3.setText(correct);
         }
 
+        correctMarks = getIntent().getIntExtra("correct_marks",0);
         Button nextbutton = findViewById(R.id.nextBtn);
         nextbutton.setOnClickListener(this);
     }
     public void onClick(View view) {
         if (answer != null) {
-            Intent intent = new Intent(this, FinalPage.class);
+
+           Intent intent = new Intent(this, FinalPage.class);
             intent.putExtra("answer", answer);
             intent.putExtra("correctAnswer", correct);
             intent.putExtra("q", question);
+            if(answer.equals(correct)){
+                correctMarks++;
+            }
+            System.err.println("Correct in page 10 >>>"+correctMarks);
+            intent.putExtra("correct_marks",correctMarks);
             startActivity(intent);
         } else {
             new AlertDialog.Builder(this)

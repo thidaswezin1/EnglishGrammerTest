@@ -19,6 +19,7 @@ public class QuestionAnswer2 extends Activity implements View.OnClickListener,Ra
     String correct,answer;
     String question,ques,falseAnswer1,falseAnswer2;
     RadioButton radio1,radio2,radio3;
+    int correctMarks;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questionanswer);
@@ -28,6 +29,12 @@ public class QuestionAnswer2 extends Activity implements View.OnClickListener,Ra
         TextView textView1 =findViewById(R.id.question);
         ImageView image = findViewById(R.id.imageView);
         image.setImageResource(R.drawable.q);
+        image.getLayoutParams().height = 300;
+
+        image.getLayoutParams().width = 200;
+
+        image.setScaleType(ImageView.ScaleType.FIT_XY);
+
 
         ProgressBar progressBar = findViewById(R.id.progressBar2);
         progressBar.setProgress(1);
@@ -77,6 +84,8 @@ public class QuestionAnswer2 extends Activity implements View.OnClickListener,Ra
             radio3.setText(correct);
         }
 
+        correctMarks = getIntent().getIntExtra("correct_marks",0);
+
         Button nextbutton = findViewById(R.id.nextBtn);
         nextbutton.setOnClickListener(this);
     }
@@ -86,6 +95,10 @@ public class QuestionAnswer2 extends Activity implements View.OnClickListener,Ra
             intent.putExtra("answer", answer);
             intent.putExtra("correctAnswer", correct);
             intent.putExtra("q", question);
+            if(answer.equals(correct)){
+                correctMarks++;
+            }
+            intent.putExtra("correct_marks",correctMarks);
             startActivity(intent);
         } else {
             new AlertDialog.Builder(this)

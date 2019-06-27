@@ -8,8 +8,10 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.content.*;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 
 public class MainActivity extends Activity implements View.OnClickListener,RadioGroup.OnCheckedChangeListener {
     RadioButton radio1,radio2,radio3;
@@ -27,6 +29,20 @@ public class MainActivity extends Activity implements View.OnClickListener,Radio
         radio2 = findViewById(R.id.radio2);
         radio3 = findViewById(R.id.radio3);
         radioGroup.setOnCheckedChangeListener(this);
+        Switch music = findViewById(R.id.switch1);
+        music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    Intent svc=new Intent(getApplicationContext(),BackgroundMusic.class);
+                    startService(svc);
+                } else {
+                    // The toggle is disabled
+                    Intent svc=new Intent(getApplicationContext(),BackgroundMusic.class);
+                    stopService(svc);
+                }
+            }
+        });
     }
     public void onClick(View view){
         if(question!=null) {

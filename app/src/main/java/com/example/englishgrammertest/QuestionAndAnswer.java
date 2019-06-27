@@ -1,8 +1,11 @@
 package com.example.englishgrammertest;
 
 public class QuestionAndAnswer {
+    int question_id;
     String question_name;
     String correct_answer;
+
+
 
     public QuestionAndAnswer() {
     }
@@ -21,5 +24,13 @@ public class QuestionAndAnswer {
 
     public void setCorrect_answer(String correct_answer) {
         this.correct_answer = correct_answer;
+    }
+
+    public int getQuestion_id() {
+        return question_id;
+    }
+
+    public void setQuestion_id(int question_id) {
+        this.question_id = question_id;
     }
 }

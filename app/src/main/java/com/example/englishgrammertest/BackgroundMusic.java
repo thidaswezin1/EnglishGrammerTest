@@ -15,7 +15,7 @@ public class BackgroundMusic extends Service {
         player=MediaPlayer.create(this,R.raw.music);
         player.setLooping(true);
         player.setVolume(100, 100);
-        //player.start();
+        player.start();
     }
     public void onStart(Intent intent,int startId){
         //super.onStart(intent, startId);

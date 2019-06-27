@@ -1,5 +1,6 @@
 package com.example.englishgrammertest;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -38,6 +39,7 @@ public class DatabaseAccess {
      * Open the database connection.
      */
     public void open() {
+
         this.database = openHelper.getWritableDatabase();
     }
 
@@ -57,13 +59,14 @@ public class DatabaseAccess {
      */
     public List<QuestionAndAnswer> getQuestion(String level){
         List<QuestionAndAnswer> list = new ArrayList<QuestionAndAnswer>();
-        Cursor cursor = database.rawQuery("SELECT qa.question,qa.answer FROM question_answer as qa join level as l where l.id=qa.level_id and l.name='"+level+"'", null);
+        Cursor cursor = database.rawQuery("SELECT qa.id,qa.question,qa.answer FROM question_answer as qa join level as l where l.id=qa.level_id and l.name='"+level+"'", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
 
             QuestionAndAnswer qa = new QuestionAndAnswer();
-            qa.setQuestion_name(cursor.getString(0));
-            qa.setCorrect_answer(cursor.getString(1));
+            qa.setQuestion_id(cursor.getInt(0));
+            qa.setQuestion_name(cursor.getString(1));
+            qa.setCorrect_answer(cursor.getString(2));
             list.add(qa);
             cursor.moveToNext();
         }
@@ -81,6 +84,7 @@ public class DatabaseAccess {
         cursor.close();
         return list;
     }
+
 
     
 } 

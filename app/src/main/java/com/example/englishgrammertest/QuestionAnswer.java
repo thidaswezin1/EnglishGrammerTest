@@ -24,6 +24,9 @@ public class QuestionAnswer extends Activity implements View.OnClickListener,Rad
     String falseAnswer1,falseAnswer2;
     RadioButton radio1,radio2,radio3;
     String answer;
+    List<Integer> falseList = new ArrayList<Integer>();
+    int id;
+    int correctMarks = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class QuestionAnswer extends Activity implements View.OnClickListener,Rad
         databaseAccess.open();
         List<QuestionAndAnswer> list = databaseAccess.getQuestion(question);
         QuestionAndAnswer questionAndAnswer = list.get(0);
+        id = questionAndAnswer.getQuestion_id();
         ques = questionAndAnswer.getQuestion_name();
         correct = questionAndAnswer.getCorrect_answer();
 
@@ -88,6 +92,11 @@ public class QuestionAnswer extends Activity implements View.OnClickListener,Rad
             intent.putExtra("correctAnswer",correct);
             System.err.println("Question>>>>>"+question);
             intent.putExtra("q",question);
+            if(answer.equals(correct)){
+               correctMarks++;
+            }
+            intent.putExtra("correct_marks",correctMarks);
+
             startActivity(intent);
         }
         else{
